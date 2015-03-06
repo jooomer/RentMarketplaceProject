@@ -76,9 +76,4 @@
     <put-attribute name="title" value="Login" />
   </definition>
 
-  <definition name="message" extends="common">
-    <put-attribute name="title" value="Message" />
-    <put-attribute name="body" value="/WEB-INF/jsp/message.jsp" />
-  </definition>
-
 </tiles-definitions>

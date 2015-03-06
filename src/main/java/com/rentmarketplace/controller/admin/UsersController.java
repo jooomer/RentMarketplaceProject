@@ -14,19 +14,20 @@ import com.rentmarketplace.model.entity.User;
 import com.rentmarketplace.service.UserService;
 
 @Controller
+@RequestMapping(value = "/users")
 public class UsersController {
 	
 	@Autowired
 	private UserService userService;
 		
-	@RequestMapping(value = "/users")
+	@RequestMapping
 	public String users(Model model) {
 		model.addAttribute("users", userService.findAll());
 		return "users";
 		
 	}
 	
-	@RequestMapping(value = "/users/{id}")
+	@RequestMapping(value = "/{id}")
 	public String detail(Model model, @PathVariable int id) {
 		model.addAttribute("user", userService.findOneWithProducts(id));
 		return "user-detail";

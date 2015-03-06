@@ -1,8 +1,11 @@
 package com.rentmarketplace.controller.common;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,7 @@ import com.rentmarketplace.model.entity.User;
 import com.rentmarketplace.service.UserService;
 
 @Controller
+@RequestMapping("/register")
 public class RegisterController {
 	
 	@Autowired
@@ -22,13 +26,16 @@ public class RegisterController {
 		return new User();
 	}
 		
-	@RequestMapping(value = "/register")
+	@RequestMapping
 	public String showRegister() {
 		return "register";
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String doRegister(@ModelAttribute("user") User user) {
+	@RequestMapping(method = RequestMethod.POST)
+	public String doRegister(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		if (result.hasErrors()) {
+			return "register";
+		}
 		userService.save(user);
 		return "redirect:/register?success=true";
 	}

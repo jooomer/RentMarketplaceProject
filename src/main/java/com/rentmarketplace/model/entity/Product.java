@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Type;
 
 import com.rentmarketplace.service.ProductTypeService;
 
@@ -18,10 +22,16 @@ public class Product {
 	@GeneratedValue
 	private Integer id;
 	
+	@Size(min = 3, message = "The product name must be at least 3 characters!")
 	private String name;
 	
+	@Lob
+	@Type(type = "org.hibernate.type.StringClobType")
+	@Column(length = Integer.MAX_VALUE)
 	private String description;
 
+	private Double price;
+	
 	@Column(name = "published_date")
 	private Date publishedDate;
 	
@@ -33,12 +43,6 @@ public class Product {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-//	public void setProductType(String type) {
-//		ProductTypeService productTypeService = new ProductTypeService();
-//		ProductType productType = productTypeService.findByName(type);
-//		this.productType = productType;
-//	}
-	
 	public Integer getId() {
 		return id;
 	}
@@ -85,6 +89,14 @@ public class Product {
 
 	public void setProductType(ProductType productType) {
 		this.productType = productType;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 

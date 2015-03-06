@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="../layout/taglib.jsp"%>
+<%@ include file="/WEB-INF/layout/taglib.jsp" %>
 
 <form:form commandName="user" cssClass="form-horizontal">
 

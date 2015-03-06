@@ -5,11 +5,6 @@
 
 <form:form commandName="product" cssClass="form-horizontal">
 
-	
-<%-- 	<c:if test="${param.success eq true }"> --%>
-<!-- 		<div class="alert alert-success">Congratulations! You are successfully registered. Now you can sign in.</div> -->
-<%-- 	</c:if> --%>
-
 		<div class="form-group">
 			<label for="productType" class="col-sm-2 control-label">Product type:</label>
 			<div class="col-sm-10">
@@ -17,18 +12,26 @@
 					<form:option value="">-- SELECT TYPE OF PRODUCT --</form:option>
 					<form:options items="${listOfProductTypes}" itemValue="name" itemLabel="name" />
 				</form:select>
+				<form:errors path="productType.name" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="name" class="col-sm-2 control-label">Name:</label>
 			<div class="col-sm-10">
 				<form:input path="name" cssClass="form-control"/>
+				<form:errors path="name" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="description" class="col-sm-2 control-label">Description:</label>
 			<div class="col-sm-10">
 				<form:input path="description" cssClass="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="price" class="col-sm-2 control-label">Price:</label>
+			<div class="col-sm-10">
+				<form:input path="price" cssClass="form-control"/>
 			</div>
 		</div>
 		<div class="form-group">

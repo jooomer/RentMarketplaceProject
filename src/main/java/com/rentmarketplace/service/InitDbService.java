@@ -97,6 +97,8 @@ public class InitDbService {
 		product1.setDescription("Phone is fully functional. May have signs of light wear which may include a few scratches or minor cosmetic issues. Includes charging accessories. Device will not include SIM card.");
 		product1.setUser(userAdmin);
 		product1.setProductType(productTypeMobile);
+		product1.setPrice(600.);
+		product1.setPublishedDate(new Date());
 		productRepository.save(product1);
 
 		Product product2 = new Product();
@@ -104,6 +106,8 @@ public class InitDbService {
 		product2.setDescription("VWD - more lightweight! The Cervelo S5 highend carbon road bike with FK26 UltraLight fork and 2Position-Aero seatpost. Made to fulfill highest demands.");
 		product2.setUser(userAdmin);
 		product2.setProductType(productTypeVelobikes);
+		product2.setPrice(500.);
+		product2.setPublishedDate(new Date());
 		productRepository.save(product2);
 
 		Product product3 = new Product();
@@ -111,6 +115,8 @@ public class InitDbService {
 		product3.setDescription("The Land Rover Discovery Sport is a very impressive car. It has class-leading practicality, a nice interior, exemplary safety credentials and it's really good to drive.");
 		product3.setUser(userUser);
 		product3.setProductType(productTypeCars);
+		product3.setPrice(100000.);
+		product3.setPublishedDate(new Date());
 		productRepository.save(product3);
 
 		Product product4 = new Product();
@@ -118,6 +124,8 @@ public class InitDbService {
 		product4.setDescription("Ducati’s superb super-sports flagship blends Italian style, mind-blowing 200bhp performance and racer-like handling and braking with reasonable comfort and outstanding safety features. It’s a magnificent motorbike, albeit a very expensive one.");
 		product4.setUser(userUser);
 		product4.setProductType(productTypeMotobikes);
+		product4.setPrice(30000.);
+		product4.setPublishedDate(new Date());
 		productRepository.save(product4);
 
 	}

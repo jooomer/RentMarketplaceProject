@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("/login")
 public class LoginController {
 
 	private final static Logger LOGGER = LogManager
 			.getLogger(LoginController.class);
 
-	@RequestMapping(value = "/login")
+	@RequestMapping
 	public String login() {
 		return "login";
 	}

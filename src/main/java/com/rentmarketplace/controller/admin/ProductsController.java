@@ -17,12 +17,13 @@ import com.rentmarketplace.service.ProductService;
 import com.rentmarketplace.service.UserService;
 
 @Controller
+@RequestMapping("/products")
 public class ProductsController {
 	
 	@Autowired
 	private ProductService productService;
 		
-	@RequestMapping(value = "/products")
+	@RequestMapping
 	public String users(Model model) {
 		List<Product> products = productService.findAll();
 		model.addAttribute("products", products);
@@ -30,7 +31,7 @@ public class ProductsController {
 		
 	}
 	
-	@RequestMapping(value = "/products/{id}")
+	@RequestMapping(value = "/{id}")
 	public String detail(Model model, @PathVariable int id) {
 		model.addAttribute("product", productService.findOne(id));
 		return "product-detail";
