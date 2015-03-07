@@ -19,8 +19,11 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/rentmarketplace" />
+<!-- 		<property name="url" value="jdbc:mysql://exchange1.qwave.com.ua:5004/rentmarketplace" /> -->
+<!-- 		<property name="url" value="jdbc:mysql://localhost:5004/rentmarketplace" /> -->
 		<property name="username" value="root" />
 		<property name="password" value="root" />
+<!-- 		<property name="password" value="Univer123" /> -->
 	</bean>
 
 	<bean
@@ -31,7 +34,7 @@
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 		<property name="persistenceProvider">

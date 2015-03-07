@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.rentmarketplace.model.entity.User;
 import com.rentmarketplace.service.UserService;
@@ -32,12 +33,14 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String doRegister(@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String doRegister(@Valid @ModelAttribute("user") User user, BindingResult result,
+			RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
 			return "register";
 		}
 		userService.save(user);
-		return "redirect:/register?success=true";
+		redirectAttributes.addFlashAttribute("success", true);
+		return "redirect:/register";
 	}
 
 }
